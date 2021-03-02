@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Player as user
+participant ":Game" as sys
+
+user->sys : selectObject(theGameObject)
+sys-->user : list of interactionTypes available for theGameObject
+user->sys : selectInteractionOptions(theOptions)
+
+alt Interaction Options Available
+    sys-->user : request interaction specific options
+    user->sys : setInteractionOptions(theOptions)
+    sys-->user : confirms options
+end
+
+user->sys : startInteraction()
+sys-->user : result of interaction
+
+@enduml

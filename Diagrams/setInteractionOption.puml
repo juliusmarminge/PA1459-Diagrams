@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant ":Game" as game
+
+[->game : setInteractionOptions(theOptions)
+activate game
+
+
+deactivate game
+
+
+'activate someObject
+'[<--someObject : confirms options
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant ":Game" as game
+
+[->game : startInteraction()
+activate game
+
+
+deactivate game
+
+
+'[<--someObject : result of interaction
+'activate someObject
+@enduml

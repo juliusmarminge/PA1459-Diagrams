@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+'User selects an object to interact with, system then
+'returns what interactions are available for that object.
+
+participant ":Game" as game
+
+[->game : selectObject(theGameObject)
+activate game
+
+
+deactivate game
+
+
+'[<--someObject : list of interationTypes available for theGameObject
+'activate someObject
+
+@enduml
