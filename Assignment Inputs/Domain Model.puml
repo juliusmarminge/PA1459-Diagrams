@@ -19,4 +19,5 @@ GameObject <|-- HelpObject : is a type of
 GameObject <|-- Notification : is a
 GameObject -- "*" InteractionType : has >
 
+
 @enduml

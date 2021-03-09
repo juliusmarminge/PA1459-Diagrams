@@ -1,13 +1,18 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-participant ":Game" as game
-
-[->game : setInteractionOptions(theOptions)
-activate game
-
-
-deactivate game
+participant ":GameObject" as gameObject
+participant "currentInteraction:InteractionType" as InteractionType
+activate InteractionType
+[->gameObject : setInteractionOptions(theOptions)
+activate gameObject
+gameObject->InteractionType : setOptions(theOptions.end())
+note right
+get value of option
+from map
+end note
+deactivate gameObject
+deactivate InteractionType
 
 
 'activate someObject

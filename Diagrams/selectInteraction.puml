@@ -1,13 +1,24 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-participant ":Game" as game
+participant ":GameObject" as gameObject
+participant ":InteractionType" as InteractionType
+participant ":HelpObject" as HelpObject
 
-[->game : selectInteraction(theInteractionType)
-activate game
+[->gameObject : selectInteraction(theInteractionType)
+activate gameObject
 
-
-deactivate game
+gameObject -> InteractionType **: current = create(theInteractionType)
+activate  InteractionType
+gameObject -> InteractionType : getOptions(current)
+InteractionType --> gameObject : theOptions = current.options
+'deactivate InteractionType
+note right : options is a vector-member in InteractionType
+gameObject -> HelpObject : theFormattedOptions = format(theOptions)
+activate HelpObject
+gameObject -->[ : <Map>(theFormattedOptions, theOptions)
+deactivate HelpObject
+deactivate gameObject
 
 
 '[<--someObject : interaction options

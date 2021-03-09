@@ -3,17 +3,20 @@
 
 'User selects an object to interact with, system then
 'returns what interactions are available for that object.
+participant ":GameElement" as gameElement
+'participant ":Scene" as scene
+participant ":GameObject" as gameObject
 
-participant ":Game" as game
+[->gameElement : selectObject(theGameObject)
+activate gameElement
 
-[->game : selectObject(theGameObject)
-activate game
+gameElement -> gameObject : theInteractions = getAvailableInteractions(theGameObject)
+activate gameObject
+deactivate gameObject
 
 
-deactivate game
+[<--gameElement : theInteractions
+deactivate gameElement
 
-
-'[<--someObject : list of interationTypes available for theGameObject
-'activate someObject
 
 @enduml

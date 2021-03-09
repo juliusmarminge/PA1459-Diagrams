@@ -1,13 +1,15 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-participant ":Game" as game
+'participant "currentInteraction:InteractionType" as currInt
 
 [->game : startInteraction()
-activate game
+game->controller : delegate
+controller->someclass : dothis
+'activate currInt
 
 
-deactivate game
+'deactivate currInt
 
 
 '[<--someObject : result of interaction
